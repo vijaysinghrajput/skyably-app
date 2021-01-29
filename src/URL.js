@@ -1,1 +1,1 @@
-export default  URL = 'http://slis.in/master';
+export default  URL = 'https://skyably.com/skyably-admin';
