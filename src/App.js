@@ -3,23 +3,20 @@ import { Switch, Route, Router, BrowserRouter, withRouter } from 'react-router-d
 import { LastLocationProvider } from 'react-router-last-location';
 
 import SplshImage from './component/SplshImage';
-import Theme from './component/Theme';
 
 import HomePage from './Page/HomePage';
 import AboutUsPage from './Page/AboutUsPage';
-import ServicesPage from './Page/ServicesPage';
-import AllServicesPage from './Page/AllServicesPage';
+import AddPropertyPage from './Page/AddPropertyPage';
+import ContactPage from './Page/ContactPage';
+import PrivacyPage from './Page/PrivacyPage';
+import LoginPage from './Page/LoginPage';
+import CreateAccount from './Page/CreacteAccountPage';
 
 import NotFoundPage from './Page/NotFoundPage';
-
 
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
-
-// hey bhaiya its working!!
-
-// Lets Begain
 
 
 class App extends Component {
@@ -49,10 +46,6 @@ class App extends Component {
 
         <LastLocationProvider>
 
-          <SplshImage />
-
-
-
 
           <Switch>
 
@@ -60,19 +53,24 @@ class App extends Component {
               <HomePage />
             </Route>
 
-
-
-
             <Route exact path="/about" >
               <AboutUsPage />
             </Route>
 
-            <Route exact path="/services/:servicesName" >
-              <ServicesPage />
+            <Route exact path="/AddProperty" >
+              <AddPropertyPage />
             </Route>
 
-            <Route exact path="/service" >
-              <AllServicesPage />
+            <Route exact path="/Login" >
+              <LoginPage />
+            </Route>
+
+            <Route exact path="/CreateAccount" >
+              <CreateAccount />
+            </Route>
+
+            <Route exact path="/privacy" >
+              <PrivacyPage />
             </Route>
 
             <Route path='*' exact={true}>
@@ -82,12 +80,6 @@ class App extends Component {
 
           </Switch>
 
-
-
-
-
-
-          <Theme />
         </LastLocationProvider>
 
       </BrowserRouter>

@@ -11,75 +11,65 @@ const cookies = new Cookies();
 
 
 class RecentProject extends Component{
+
   constructor(props) {
 
     super(props);
    
       this.state = {
-        isloaded:false,
-        UserID:null,
-        SaverTodayDetails:[],
+        portfolio:[]
       }
+    
 
-      this.handleNext = this.handleNext.bind(this);
 
 
     }
- 
-    handleNext(categoryId,categoryname) {
-        const Routation = "/SubCategorys/"+categoryId+"/"+categoryname;
-        this.props.history.push(Routation);
 
-      }
 
-      async componentDidMount()
-      {
-      
-    
-        this.fetchSaverProducts()
-        
-      
-      }
+
+
+    async  componentDidMount() {
+
+      await  this.fetchportfolio()
+   
        
-      
-      fetchSaverProducts()
-      {
-        fetch(URL+"/APP-API/Product/GetAllSaverProduct",{
-        method:'post',
-          header:{
-          'Accept': 'application/json',
-          'Content-type': 'application/json'
-          },
-          body:JSON.stringify({
-          
-          UserID:this.state.UserID
-      
-           
-          })
-          
-        })
+     }
+   
+     fetchportfolio() {
+       fetch(URL + "/APP-API/Product/GetStorePorfolio", {
+         method: 'post',
+         header: {
+           'Accept': 'application/json',
+           'Content-type': 'application/json'
+         },
+         body: JSON.stringify({
+   
+   
+         })
+   
+       })
          .then((response) => response.json())
          .then((responseJson) => {
-           
-          
-          console.log('Categorys',responseJson)
-        // alert('yes')
-          this.setState({ SaverTodayDetails: responseJson ,isloaded:true });
-        
-        
-           
-           
-           
+   
+   
+            console.log('portfolio',responseJson)
+   
+           this.setState({ portfolio: responseJson.data.slice(0,8) });
+   
+   
+   
+   
+   
          })
          .catch((error) => {
            //  console.error(error);
-            
+   
          });
-        
-       
-      }
-      
-    
+   
+   
+     }
+   
+   
     render() { 
 
 
@@ -92,54 +82,210 @@ class RecentProject extends Component{
     
     
     return (
-      <section class="com-padd com-padd-redu-bot">
-      <div class="container dir-hom-pre-tit">
-        <div class="row">
-          <div class="com-title">
-            <h2>Top Trendings for <span>your City</span></h2>
-            <p>Explore some of the best tips from around the world from our partners and friends.</p>
-          </div>
-          <div class="col-md-6">
-            <div>
-              
-
-            { this.state.SaverTodayDetails.map((item, key) => {
-              return ( 
-
-              <div class="home-list-pop">
-                
-                <div class="col-md-3"> <img src="images/services/tr1.jpg" alt="" /> </div>
-                
-                <div class="col-md-9 home-list-pop-desc"> <a href="automobile-listing-details.html"><h3>Import Motor America</h3></a>
-                  <h4>Express Avenue Mall, Santa Monica</h4>
-                  <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</p> <span class="home-list-pop-rat">4.2</span>
-                  <div class="hom-list-share">
-                    <ul>
-                      <li><a href="#!"><i class="fa fa-bar-chart" aria-hidden="true"></i> 52</a> </li>
-                      <li><a href="#!"><i class="fa fa-heart-o" aria-hidden="true"></i> 32</a> </li>
-                      <li><a href="#!"><i class="fa fa-eye" aria-hidden="true"></i> 420</a> </li>
-                      <li><a href="#!"><i class="fa fa-share-alt" aria-hidden="true"></i> 570</a> </li>
-                    </ul>
-                  </div>
+      <section id="agent-p-2" class="property-details bg_light padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 bottom40">
+        <h2 class="text-uppercase">Recent <span class="color_red">PROPERTY</span></h2>
+        <div class="line_1"></div>
+        <div class="line_2"></div>
+        <div class="line_3"></div>
+        <p class="margin-t-20">Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing
+          <br/>vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div id="property-2-slider" class="owl-carousel">
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-1.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Sale</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
                 </div>
               </div>
-                 )
-                  })}
-                  
-
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$8,600 Per Month</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-2.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Sale</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
+                </div>
+              </div>
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$83,600,200</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-3.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Rent</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
+                </div>
+              </div>
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$8,600 Per Month</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-1.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Rent</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
+                </div>
+              </div>
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$8,600 Per Month</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-2.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Sale</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
+                </div>
+              </div>
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$8,60020</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="property_item bottom40">
+              <div class="image">
+                <img src="/images/property-listing-3.jpg" alt="listin" class="img-responsive"/>
+                <div class="property_meta">
+                  <span><i class="fa fa-object-group"></i>530 sq ft </span>
+                  <span><i class="fa fa-bed"></i>2</span>
+                  <span><i class="fa fa-bath"></i>1 Bathroom</span>
+                </div>
+                <div class="price"><span class="tag">For Rent</span></div>
+                <div class="overlay">
+                  <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
+                </div>
+              </div>
+              <div class="proerty_content">
+                <div class="proerty_text">
+                  <h3><a href="property_details_1.html">House in New York City</a></h3>
+                  <span class="bottom10">Merrick Way, Miami, USA</span>
+                  <p><strong>$8,600 Per Month</strong></p>
+                </div>
+                <div class="favroute clearfix">
+                  <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
+                  <ul class="pull-right">
+                    <li><a href="#."><i class="icon-video"></i></a></li>
+                    <li><a href="#."><i class="icon-like"></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
         )
-    }}
-    
-  ;
+    }};
 
-
-
-  
 
   }
 

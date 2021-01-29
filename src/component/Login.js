@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect ,withRouter} from 'react-router-dom';
+import { Redirect, Link, withRouter } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'universal-cookie';
@@ -8,17 +8,18 @@ import URL from '../URL'
 const cookies = new Cookies()
 
 
-class Login extends Component{
+class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-   
-      UserPhone:'',
-      password:''
+
+      UserEmail: '',
+      password: '',
+      isloading: true
     }
     this.onChange = this.onChange.bind(this);
-    this.handleBack = this.handleBack.bind(this); 
+    this.handleBack = this.handleBack.bind(this);
     this.handleNext = this.handleNext.bind(this);
 
 
@@ -29,222 +30,166 @@ class Login extends Component{
 
   }
 
-  handleNext(Routation)
-  {
+  handleNext(Routation) {
     this.props.history.push(Routation);
   }
 
-onChange(e) {
+  onChange(e) {
 
-    if (e.target.id === 'mobile') {
-      this.setState({ UserPhone: e.target.value });
-  } else if (e.target.id === 'password') {
-      this.setState({ password: e.target.value});
-      console.log(e.target.value);
+    if (e.target.id === 'email') {
+      this.setState({ UserEmail: e.target.value });
+    } else if (e.target.id === 'password') {
+      this.setState({ password: e.target.value });
+    }
   }
-}
 
 
-async componentDidMount()
-{
+  async componentDidMount() {
 
 
-
-}
+  }
 
 
 
 
-render() {
+  render() {
 
 
-  return ( 
-<div style={{marginBottom:50}}>
-<div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-            
-                <div class="col-sm-6">
-                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a onClick={()=>this.handleBack()}>Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">login</li>
-                        </ol>
-                    </nav>
-                </div>
+    return (
+      <>
+
+        <section class="tz-register">
+          <div class="log-in-pop">
+            <div class="log-in-pop-left">
+              <h1>Hello... <span></span></h1>
+              <p>Don't have an account? Create your account. It's take less then a minutes</p>
+              <h4>Login with social media</h4>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                </li>
+                <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-       <section class="login-page section-b-space">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3>Login</h3>
-                    <div class="theme-card">
-                        <form class="theme-form">
-                        
-                            
-                            <div class="form-group">
-                                <label for="email">Mobile Number </label>
-                                <input type="tel" onChange={this.onChange}  class="form-control" id="mobile" placeholder="Mobile Number" required="" />
-                            </div>
-                            
-                            
-                            <div class="form-group">
-                                <label for="review">Password</label>
-                                <input type="password"  onChange={this.onChange}  class="form-control" id="password"
-                                    placeholder="Enter your password" required="" />
-                            </div>
-                            
-                            
-                  <a onClick={() => this.LoginFunction()} class="btn btn-solid">Login</a>
-                            
-                            
-                        </form>
-                    </div>
+            <div class="log-in-pop-right">
+              <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.html" alt="" />
+              </a>
+              <h4>Login</h4>
+              <p>Don't have an account? Create your account. It's take less then a minutes</p>
+              <form class="s12">
+                <div>
+                  <div class="input-field s12">
+                    <input type="email" id="email" onChange={this.onChange} class="validate" />
+                    <label>Email</label>
+                  </div>
                 </div>
-                <div class="col-lg-6 right-login">
-                    <h3>New Customer</h3> 
-                    <div class="theme-card authentication-right">
-                        <h6 class="title-font">Create A Account</h6>
-                        <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be
-                            able to order from our shop. To start shopping click register.</p><a onClick={() =>   this.handleNext("/SignUp")} 
-                            class="btn btn-solid">Create an Account</a>
-                    </div>
+                <div>
+                  <div class="input-field s12">
+                    <input type="password" id="password" onChange={this.onChange} class="validate" />
+                    <label>Password</label>
+                  </div>
                 </div>
+                <div>
+                  <div class="input-field s4">
+                    <i class="waves-effect waves-light log-in-btn waves-input-wrapper">
+                      <div id="button" onClick={() => this.LoginFunction()} value="Login" class="waves-effect waves-light log-in-btn" >Login</div>
+                    </i>
+                  </div>
+                </div>
+                <div>
+                  <div class="input-field s12"> <a href="forgot-pass.html">Forgot password</a> | <Link to="/CreateAccount">Create a new account</Link> </div>
+                </div>
+              </form>
             </div>
-        </div>
-    </section>
+          </div>
+        </section>
 
-<ToastContainer />
+        <ToastContainer />
 
-</div>
+      </>
 
-
-
-       
-     
     );
-  
+
   }
 
-  async LoginFunction(){
+  LoginFunction = () => {
 
-    this.setState({isloading:true,errorr:''})
+    this.setState({ isloading: true });
 
+    if (this.state.UserEmail === '') {
 
- 
-    var mobileno = /^\d{10}$/;
-    if( this.state.UserPhone=="" ){
-    
-
-      this.setState({isloading:false,})
-      var msg = 'Please fill mobile number'
-      toast.error(msg)
-  
-    }
-    
-  
-  
-    else if(!this.state.UserPhone.match(mobileno)){
-      this.setState({isloading:false,})
-
-      var msg = 'Please Enter Vaild 10 digit mobile Number'
-      toast.error(msg)
-
-    }
- 
-      
-    else if(this.state.UserFullName==''){
-      this.setState({isloading:false,})
-      var msg = 'Please Enter Name'
+      this.setState({ isloading: false, })
+      var msg = 'Please enter your email!!'
       toast.error(msg)
 
     }
 
+    else if (this.state.password === '') {
 
-
-    else if(this.state.password==''){
-
-        this.setState({isloading:false,})
-        var msg = 'Password Requird'
-        toast.error(msg)
-  
-       
-      }
-
-
- 
-
-  
-    else{
-  
-  
-      
-    this.setState({isloading:true})
-
-    fetch(URL+"/APP-API/App/LoginByPhone", {
-
-      method:'post',
-      header:{
-        'Accept': 'application/json',
-        'Content-type': 'application/json'
-      },
-      body:JSON.stringify({
-      
-       
-        mobile:this.state.UserPhone,
-        password:this.state.password,       
-
-      
-       
-      })
-      
-
-  }) .then((response) => response.json())
-  .then((responseJson) => {
-
- 
-    if(responseJson.Login=='done')
-    { 
-    
-      var msg = 'You have Logged successfully'
-      toast.success(msg)
-      
-      
-      cookies.set("isLogged", true,{ maxAge: 999999999999 });
-      cookies.set("UserID", responseJson.data[0].customers_id,{ maxAge: 999999999999 });
-      cookies.set("user_mobile_number",this.state.UserPhone,{ maxAge: 999999999999 });
-      cookies.set("user_name",responseJson.data[0].name,{ maxAge: 999999999999 });
-    
-      // window.location.reload();
-
-      this.handleNext("/")
-  
-    
-    }
-    else
-    {
-      var msg = 'Phone or Password not Matched'
+      this.setState({ isloading: false, })
+      var msg = 'Password Requird'
       toast.error(msg)
+
+    } else {
+
+      this.setState({ isloading: true });
+
+      fetch(URL + "/APP-API/App/Login", {
+
+        method: 'post',
+        header: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+
+          email: this.state.UserEmail,
+          password: this.state.password
+
+        })
+
+
+      }).then((response) => response.json())
+        .then((responseJson) => {
+
+          console.log("result", responseJson);
+          if (responseJson.Login) {
+
+            var msg = 'You have Logged successfully'
+            toast.success(msg)
+
+
+            cookies.set("isLogged", true, { maxAge: 999999999999 });
+            cookies.set("UserID", responseJson.data[0].customers_id, { maxAge: 999999999999 });
+            cookies.set("user_mobile_number", this.state.UserEmail, { maxAge: 999999999999 });
+            cookies.set("user_name", responseJson.data[0].name, { maxAge: 999999999999 });
+
+            // window.location.reload();
+
+            this.handleNext("/")
+
+
+          }
+          else {
+            var msg = 'Phone or Password not Matched';
+            toast.error(msg);
+          }
+
+        })
+        .catch((error) => {
+          //  console.error(error);
+
+        });
+
     }
-  
 
 
-  })
-  .catch((error) => {
-    //  console.error(error);
-       
-  });
-
-    }
-  
-      
   }
 
 
-  
+
 }
 
 export default withRouter(Login);

@@ -4,12 +4,13 @@ import Header from '../component/Header';
 import Footer from '../component/Footer';
 
 
-import AboutUS from '../component/AboutUS';
+import Contact from '../component/Contact';
+
 import {Helmet} from "react-helmet";
 
 
 
-class AboutUsPage extends Component{
+class ContactPage extends Component{
     
   render() {
 
@@ -21,7 +22,7 @@ class AboutUsPage extends Component{
 
     <Helmet>
     <meta charSet="utf-8" />
-    <title>About - Skyably IT Solution | 
+    <title>Contact - Skyably IT Solution | 
     app development in Gorakhpur |
     app development mobile in Gorakhpur |
     mobile app development company in Gorakhpur |
@@ -61,7 +62,7 @@ class AboutUsPage extends Component{
     Facebook Promotion Agency in Gorakhpur|
     Facebook Management Company in Gorakhpur|
     Facebook Management Agency in Gorakhpur</title>
-    <link rel="canonical" href="http://mysite.com/example" />
+    
     <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
     
     <meta name="description" content="Skyably is a leading IT Solutions and Services 
@@ -120,7 +121,7 @@ class AboutUsPage extends Component{
  
 
 
-    <AboutUS/>
+    <Contact/>
 
    <Footer/>
 
@@ -130,4 +131,4 @@ class AboutUsPage extends Component{
 
 }
 
-export default withRouter(AboutUsPage);
+export default withRouter(ContactPage);
