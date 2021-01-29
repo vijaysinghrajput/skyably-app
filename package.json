@@ -28,7 +28,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-last-location": "^2.0.1",
     "react-scripts": "3.4.3",
-    "react-toastify": "^6.0.9",
+    "react-toastify": "^7.0.2",
     "smartmenus": "^1.1.1",
     "swiper": "^6.3.2",
     "universal-cookie": "^4.0.4"
