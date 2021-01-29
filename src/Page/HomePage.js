@@ -17,11 +17,11 @@ class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
-
+        <MinHeader nameclass={"bottomMenu hom3-top-menu"} />
         <Header />
         <MainServices/>
         <RecentPost />
-        <MinHeader nameclass={"bottomMenu hom3-top-menu"} />
+
         <Explore />
         <Footer />
 
