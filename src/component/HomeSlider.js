@@ -75,29 +75,43 @@ splashScreen()
 
 
 
-    return ( 
-
-
-     
-
-      <section class="p-0 layout-7" >
-      <div class="slide-1 home-slider">
-      <Carousel 
-      showArrows={true} showThumbs={false} showStatus={true}
-      autoPlay={true}> 
-      { this.state.sliderData.map((item, key) => {
-          return (
-  
-      <img src={URL+"/images/offer-image/"+item.image} className="" alt="" class="bg-img blur-up lazyload" />     
-  
-  
-        )
-      })}
-      </Carousel>
-      </div>
-  </section>
-   
-    );
+    return ( <React.Fragment>
+    	<section class="dir3-home-head">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="dir-ho-tl">
+						<ul>
+							<li>
+								<a href="index-1.html"><img src="images/logo.png" alt=""/> </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="dir-ho-tr">
+						<ul>
+							<li><a href="register.html">Register</a> </li>
+							<li><a href="login.html">Sign In</a> </li>
+							<li><a href="db-listing-add.html"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container dir-ho-t-sp">
+			<div class="row">
+				<div class="dir-hr1 dir-cat-search">
+					<div class="dir-ho-t-tit">
+						<h1>Shree Lakshmi Info Services</h1> 
+						<p>We Shree Lakshmi Info Services are engaged in Manufacturing and Supplying a superior quality range of Dona Making Machine, Paper Cup Blanks, Camphor Making Machine, Paper Cup Making Machine, Slipper Making Machine, etc.</p>
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</section>
+      </React.Fragment>);
   
 
 }

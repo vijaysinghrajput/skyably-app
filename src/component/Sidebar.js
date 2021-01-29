@@ -11,7 +11,7 @@ class Sidebar extends Component{
           this.state = {
             user_name:null
           }
-          this.onChange = this.onChange.bind(this);
+     
           this.handleNext = this.handleNext.bind(this);
 
 
@@ -19,7 +19,7 @@ class Sidebar extends Component{
       
         handleNext(path) {
       
-          this.onChange()
+     
           this.props.history.push(path);
         }
 
@@ -32,77 +32,87 @@ class Sidebar extends Component{
     }
 
 
-    onChange(e)
-    {
-            /* menu open close wrapper screen click close menu */
-  
-   
-        if ($('body').hasClass('sidemenu-open') == true) {
-            $('body, html').removeClass('sidemenu-open');
-            setTimeout(function () {
-                $('body, html').removeClass('menuactive');
-            }, 500);
-        } else {
-            $('body, html').addClass('sidemenu-open menuactive');
-        }
- 
-
-        if ($('body').hasClass('sidemenu-open') == true) {
-
-            $('body, html').removeClass('sidemenu-open');
-            setTimeout(function () {
-                $('body, html').removeClass('menuactive');
-            }, 500);
-        }
-  
-
-    }
+    
 render() {
 
     return ( 
-    <div class="sidebar">
-        <div class="text-center">
-            <div class="figure-menu shadow">
-                <figure><img src="/img/logo.png" alt="" /> </figure>
-            </div>
+   <React.Fragment>
 
-            <h5 class="mb-1 ">{this.state.user_name==null?'Hello Guest':this.state.user_name}</h5>
-      
-        </div>
-        <br/>
-        <div class="row mx-0">
-            <div class="col">
-          
-                <h5 class="subtitle text-uppercase"><span>Menu</span></h5>
-              
+   <div class="sb2-1">
+  
+   <div class="sb2-12">
+       <ul>
+           <li><img src="images/users/2.png" alt=""/> </li>
+           <li>
+               <h5>John Smith <span> Santa Ana, CA</span></h5> </li>
+           <li></li>
+       </ul>
+   </div>
 
-                <div class="list-group main-menu">
-              
-                    <a   onClick={() =>   this.handleNext("/")}
-                    className={this.props.location.pathname==='/'?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'}>Store</a>
-               
-        
-                   <a onClick={() =>   this.handleNext("/Cart")} class="list-group-item list-group-item-action" className={this.props.location.pathname==='/Cart'?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'}>Shoping Cart</a>
-            
-                   <a onClick={() =>   this.handleNext("/Order")} class="list-group-item list-group-item-action" className={this.props.location.pathname==='/Order'?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'}>Order</a>
+   <div class="sb2-13">
+       <ul class="collapsible" data-collapsible="accordion">
+           <li><a href="admin.html" class="menu-active"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a> </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i> Services</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li onClick={()=>this.handleNext("/Services")}><a >All Services</a> </li>
+                       <li onClick={()=>this.handleNext("/Add-Services")}><a >Add New Services</a> </li>
+                     
+                   </ul>
+               </div>
+           </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> Users</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li><a href="admin-all-users.html">All Users</a> </li>
+                       <li><a href="admin-list-users-add.html">Add New user</a> </li>
+                   </ul>
+               </div>
+           </li>
+           <li><a href="admin-analytics.html"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a> </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-buysellads" aria-hidden="true"></i>Ads</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li><a href="admin-ads.html">All Ads</a> </li>
+                       <li><a href="admin-ads-create.html">Create New Ads</a> </li>
+                   </ul>
+               </div>
+           </li>
+           <li><a href="admin-payment.html"><i class="fa fa-usd" aria-hidden="true"></i> Payments</a> </li>
+           <li><a href="admin-earnings.html"><i class="fa fa-money" aria-hidden="true"></i> Earnings</a> </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bell-o" aria-hidden="true"></i>Notifications</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li><a href="admin-notifications.html">All Notifications</a> </li>
+                       <li><a href="admin-notifications-user-add.html">User Notifications</a> </li>
+                       <li><a href="admin-notifications-push-add.html">Push Notifications</a> </li>
+                   </ul>
+               </div>
+           </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-tags" aria-hidden="true"></i> List Price</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li><a href="admin-price.html">All List Price</a> </li>
+                       <li><a href="admin-price-list.html">Add New Price</a> </li>
+                   </ul>
+               </div>
+           </li>
+           <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-rss" aria-hidden="true"></i> Blog & Articals</a>
+               <div class="collapsible-body left-sub-menu">
+                   <ul>
+                       <li><a href="admin-blog.html">All Blogs</a> </li>
+                       <li><a href="admin-blog-add.html">Add Blog</a> </li>
+                   </ul>
+               </div>
+           </li>
+           <li><a href="admin-setting.html"><i class="fa fa-cogs" aria-hidden="true"></i> Setting</a> </li>
+           <li><a href="admin-social-media.html"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Social Media</a> </li>
+           <li><a href="#" target="_blank"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </li>
+       </ul>
+   </div>
+</div>
 
-               
-                   <a  onClick={() =>   this.handleNext("/Profile")} class="list-group-item list-group-item-action" className={this.props.location.pathname==='/Profile'?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'}>Profile</a>
-         
-                 
-                    <a onClick={() =>   this.logOut()}  class="list-group-item list-group-item-action mt-2">Logout</a>
-
-
-                    <a  class="text-center text-dark mt-4">Developed By</a>
-              
-                    <a  onClick={() =>   this.handleNext("/Skyably")} class="list-group-item list-group-item-action text-center text-dark">Skyably IT Solution</a>
-                 
-
-                </div>
-            </div>
-        </div>
-
-    </div>
+   </React.Fragment>
     );
 }
 

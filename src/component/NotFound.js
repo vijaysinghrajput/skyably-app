@@ -55,8 +55,9 @@ render() {
 
     return ( 
  
-        <div class="text-center mt-4">
-        <div class="figure-profile shadow my-4">
+        <section class="page-title-area">
+        <div class="text-center">
+        <div class="figure-profile  ">
             <figure><img src="/img/notfound.png" alt=""/></figure>
         </div>
         <h3 class="mb-1 mt-4">Opps Something Went Wrong</h3>
@@ -64,6 +65,7 @@ render() {
                 <a class="btn btn-danger mt-4" role="button">Home</a>
             </Link>
     </div>
+    </section>
     );
 }
 

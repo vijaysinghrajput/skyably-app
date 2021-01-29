@@ -86,26 +86,14 @@ class NotFoundPage extends Component{
   return (
     <div>
 
-
-    <Sidebar/>
-  
-    <div class="wrapper">
     <Header/>
   
-    <div class="container">
-
-
 
     <NotFound/>
 
    
 
 
-    </div>
-
-    <Footer    cartValue={this.state.UserHaveInCart} />
-    
-    </div>
     
     
   

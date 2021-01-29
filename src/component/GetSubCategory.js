@@ -28,21 +28,22 @@ class GetSubCategory extends Component {
   }
 
 
-  componentWillReceiveProps(newProps) {
-    this.setState({ CategoryID: newProps.CategoryID })
-    this.fetchCategorys()
+ async componentWillReceiveProps(newProps) {
+   await this.setState({ CategoryID: newProps.CategoryID })
+  await  this.fetchCategorys()
 
   }
 
-  handleNext(categoryId,categoryname) {
-    const Routation = "/SubCategorys/"+categoryId+"/"+categoryname;
+  handleNext(servicesname) {
+    const Routation = "/services/"+servicesname;
     this.props.history.push(Routation);
+
 
   }
 
   async  componentDidMount() {
-    this.setState({ CategoryID: this.props.CategoryID })
-     this.fetchCategorys()
+   await this.setState({ CategoryID: this.props.CategoryID })
+     await  this.fetchCategorys()
  
   }
 
@@ -79,24 +80,26 @@ class GetSubCategory extends Component {
 
 
   }
+ 
 
 
   render() {
 
     return (
 
-      <React.Fragment>
 
-      <ul>
+
+      <ul >
       {this.state.Categorys.map((item, key) => {
         return (
 
-      <li><a onClick={() => this.handleNext(item.id, item.name)} >{item.name}</a></li>
-  
+      <li><a  onClick={()=>this.handleNext(item.url)} href="" >{item.name}</a></li>
+
       )
     })}
-    </ul>
-      </React.Fragment>
+  </ul>
+
+  
     );
   }
 
