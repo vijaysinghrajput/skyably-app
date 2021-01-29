@@ -34,6 +34,14 @@ class Header extends Component {
     }
   }
 
+ async SendAddLisiting()
+  {
+    var isLogged = await cookies.get('isLogged')
+      
+    if(isLogged==null)
+    {  this.handleNext("/Login") }
+   else  {  this.handleNext("/Dashboard") }
+     }
 
   async componentDidMount() {
 
@@ -111,12 +119,12 @@ class Header extends Component {
                       <ul>
                         <li><a href="login.html" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign
 											In</a> </li>
-                        <li><a href="price.html" class="v3-add-bus"><i class="fa fa-plus"
+                        <li><a href="#" onClick={()=>this.SendAddLisiting()} class="v3-add-bus"><i class="fa fa-plus"
                           aria-hidden="true"></i> Add Listing</a> </li>
                         <li><a href="#" class="ts-menu-5" id="v3-mob-menu-btn"><i class="fa fa-bars"
                           aria-hidden="true"></i>Menu</a> </li>
                       </ul>
-                    </div>
+                    </div> 
                   </div>
                 </div>
               </div>

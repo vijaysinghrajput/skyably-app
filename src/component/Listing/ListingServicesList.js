@@ -82,28 +82,30 @@ class ListingServicesList extends Component{
 					<h2>Find your <span>Services</span></h2>
 					<p>Explore some of the best business from around the world from our partners and friends.</p>
 				</div>
-				<div class="dir-hli">
-					<ul>
+                <div class="container">
+                 <div class="row">
                     { this.state.Categorys.map((item, key) => {
             return (
-                <li class="col-lg-4 col-md-6 col-sm-6">
-							<a href="list.html">
-								<div class="dir-hli-5">
-									<div class="dir-hli-1">
-										<div class="dir-hli-3"><img src={URL + "/images/category_images/" + item.image}alt=""/> </div>
-										<div class="dir-hli-4"> 
-                                        </div> <img src={URL + "/images/category_images/" + item.image} alt=""/> </div>
-									<div class="dir-hli-2">
-										<h4> {item.name} </h4> </div>
-								</div>
-							</a>
-						</li>
+                <div class="col-xl-4 col-lg-4 col-sm-4 col-6">
+						
+                <div class="card" >
+  <img class=" " src={URL + "/images/category_images/" + item.image} style={{width:"auto",margin:"auto",display:'block', height:200}} alt="Card image cap"/>
+  <div class=" my-3 text-center">
+
+   
+    <a  class="text-center my-3" href="#" class="btn btn-primary"> {item.name} </a>
+  </div>
+</div>
+
+								
+						
+						</div>
 
 
 						   )
             })}
             
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
