@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route,Router, BrowserRouter, withRouter } from 'react-router-dom';
+import { Switch, Route, Router, BrowserRouter, withRouter } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
 
 import SplshImage from './component/SplshImage';
@@ -17,80 +17,81 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
 
+// hey bhaiya its working!!
 
-class App extends Component{
+
+class App extends Component {
   constructor(props) {
 
     super(props);
 
-      this.state = {
-       
-      }
- 
+    this.state = {
+
+    }
+
 
   }
 
 
-  async componentDidMount()
-  {
+  async componentDidMount() {
 
-    cookies.set("visited", true,{ maxAge: 999999999999 });
+    cookies.set("visited", true, { maxAge: 999999999999 });
 
 
   }
 
   render() {
-  return (
+    return (
 
-    <BrowserRouter>
-  
-    <LastLocationProvider>
+      <BrowserRouter>
 
-    <SplshImage/>
-  
-  
+        <LastLocationProvider>
+
+          <SplshImage />
 
 
-    <Switch>
- 
-    <Route exact  path="/" >
-    <HomePage />
-    </Route>
-    
-    
 
 
-    <Route exact path="/about" >
-    <AboutUsPage/>
-    </Route>
+          <Switch>
 
-    <Route exact path="/services/:servicesName" >
-    <ServicesPage/>
-    </Route>
-
-    <Route exact path="/service" >
-    <AllServicesPage/>
-    </Route>
-    
-    <Route path='*' exact={true}>
-    <NotFoundPage/>
-    </Route> 
+            <Route exact path="/" >
+              <HomePage />
+            </Route>
 
 
-    </Switch>
 
-    
-    
-     
-    
 
-    <Theme/>
-    </LastLocationProvider>
+            <Route exact path="/about" >
+              <AboutUsPage />
+            </Route>
 
-    </BrowserRouter>
-   
-   );
-}
+            <Route exact path="/services/:servicesName" >
+              <ServicesPage />
+            </Route>
+
+            <Route exact path="/service" >
+              <AllServicesPage />
+            </Route>
+
+            <Route path='*' exact={true}>
+              <NotFoundPage />
+            </Route>
+
+
+          </Switch>
+
+
+
+
+
+
+          <Theme />
+        </LastLocationProvider>
+
+      </BrowserRouter>
+
+    );
+  }
 
 }
 
