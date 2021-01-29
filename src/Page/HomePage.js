@@ -19,7 +19,7 @@ class HomePage extends Component {
       <React.Fragment>
 
         <Header />
-        <MainServices/>
+        <MainServices />
         <RecentPost />
         <MinHeader nameclass={"bottomMenu hom3-top-menu"} />
         <Explore />

@@ -52,8 +52,8 @@ class Header extends Component {
 
     return (
       <>
-        <section class="i4-header">
-          <div class="container">
+        <section class="i4-header pt-4">
+          {/* <div class="container">
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="dir-ho-tl">
@@ -96,7 +96,7 @@ class Header extends Component {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </>
     );

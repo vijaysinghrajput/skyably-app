@@ -19,7 +19,7 @@ class minHeader extends Component {
     render() {
         return (
             <>
-                <section>
+                <section class="i4-header">
                     <div class="v3-top-menu">
                         <div class="container">
                             <div class="row">
