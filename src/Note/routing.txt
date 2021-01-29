@@ -1,0 +1,22 @@
+this.handleBack = this.handleBack.bind(this); 
+ 
+ 
+ this.handleNext = this.handleNext.bind(this);
+
+
+this.props.history.push(path);
+
+
+
+
+this.props.history.goBack();
+
+
+<IfModule mod_rewrite.c>
+
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+
+</IfModule>
