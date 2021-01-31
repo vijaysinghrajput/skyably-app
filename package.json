@@ -27,7 +27,7 @@
     "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
     "react-router-last-location": "^2.0.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.3",
     "react-toastify": "^7.0.2",
     "smartmenus": "^1.1.1",
     "swiper": "^6.3.2",

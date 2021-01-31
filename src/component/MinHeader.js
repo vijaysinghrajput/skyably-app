@@ -16,19 +16,20 @@ class minHeader extends Component {
 
     async handleNext(Routation) {
 
-    
-          this.props.history.push(Routation);
-        
-      }
 
-    async SendAddLisiting()
-    {
-      var isLogged = await cookies.get('isLogged')
-        
-      if(isLogged==null)
-      {  this.handleNext("/Login") }
-     else  {  this.handleNext("/Dashboard") }
-       }
+        this.props.history.push(Routation);
+
+    }
+
+    async SendAddLisiting() {
+        var isLogged = await cookies.get('isLogged')
+
+        if (isLogged == null) {
+            this.handleNext("/Login")
+        } else {
+            this.handleNext("/Dashboard")
+        }
+    }
 
 
 
@@ -71,7 +72,7 @@ class minHeader extends Component {
                                             <ul>
                                                 <li><a href="login.html" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign
 											In</a> </li>
-                                                <li><a href="#" onClick={()=>this.SendAddLisiting()} class="v3-add-bus"><i class="fa fa-plus"
+                                                <li><a href="#" onClick={() => this.SendAddLisiting()} class="v3-add-bus"><i class="fa fa-plus"
                                                     aria-hidden="true"></i> Add Listing</a> </li>
                                             </ul>
                                         </div>
