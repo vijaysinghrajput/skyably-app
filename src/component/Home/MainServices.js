@@ -81,6 +81,26 @@ class MainServices extends Component {
 						</div>
 						<div class="land-pack">
 							<ul>
+							<li>
+									<div class="land-pack-grid">
+										<div class="land-pack-grid-img">
+											<img src="images/services/10.jpg" alt="" />
+										</div>
+										<div class="land-pack-grid-text">
+											<h4>Room Rent</h4>
+											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-yel">Book Now</a></div>
+									</div>
+								</li>
+								<li>
+									<div class="land-pack-grid">
+										<div class="land-pack-grid-img">
+											<img src="images/services/ser5.jpg" alt="" />
+										</div>
+										<div class="land-pack-grid-text">
+											<h4>Home Services</h4>
+											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-red">Book Now</a></div>
+									</div>
+								</li>
 								<li>
 									<div class="land-pack-grid">
 										<div class="land-pack-grid-img">
@@ -101,26 +121,7 @@ class MainServices extends Component {
 											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-blu">Book Now</a></div>
 									</div>
 								</li>
-								<li>
-									<div class="land-pack-grid">
-										<div class="land-pack-grid-img">
-											<img src="images/services/10.jpg" alt="" />
-										</div>
-										<div class="land-pack-grid-text">
-											<h4>Health Check-up</h4>
-											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-yel">Book Now</a></div>
-									</div>
-								</li>
-								<li>
-									<div class="land-pack-grid">
-										<div class="land-pack-grid-img">
-											<img src="images/services/ser5.jpg" alt="" />
-										</div>
-										<div class="land-pack-grid-text">
-											<h4>Cab Booking</h4>
-											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-red">Book Now</a></div>
-									</div>
-								</li>
+							
 							</ul>
 						</div>
 					</div>
