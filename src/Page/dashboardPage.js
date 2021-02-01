@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Redirect, Link, withRouter } from "react-router-dom";
-import Header from '../component/Header';
+import { Switch, Route, Link, withRouter } from "react-router-dom";
+
+import Header from '../component/MinHeader';
 import Footer from '../component/Footer';
 
-import Dashboard from '../component/Profile';
-import AddProperty from '../component/AddProperty';
+import Dashboard from '../component/dashboard/dashboard';
+import AddProperty from '../component/dashboard/addProperty';
 
 
 import Contact from '../component/Contact';
@@ -18,15 +19,11 @@ class ContactPage extends Component {
     render() {
 
         return (
-            <React.Fragment>
-
+            <>
                 <Header />
-
-                <AddProperty />
-
+                <Dashboard />
                 <Footer />
-
-            </React.Fragment>
+            </>
         );
     }
 

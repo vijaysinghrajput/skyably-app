@@ -6,8 +6,7 @@ import SplshImage from './component/SplshImage';
 
 import HomePage from './Page/HomePage';
 import AboutUsPage from './Page/AboutUsPage';
-import AddPropertyPage from './Page/AddPropertyPage';
-import ContactPage from './Page/ContactPage';
+import Dashboard from './Page/dashboardPage';
 import PrivacyPage from './Page/PrivacyPage';
 import LoginPage from './Page/LoginPage';
 import CreateAccount from './Page/CreacteAccountPage';
@@ -36,7 +35,6 @@ class App extends Component {
 
     cookies.set("visited", true, { maxAge: 999999999999 });
 
-
   }
 
   render() {
@@ -57,8 +55,8 @@ class App extends Component {
               <AboutUsPage />
             </Route>
 
-            <Route exact path="/AddProperty" >
-              <AddPropertyPage />
+            <Route exact path="/Dashboard" >
+              <Dashboard />
             </Route>
 
             <Route exact path="/Login" >
