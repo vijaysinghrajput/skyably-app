@@ -87,7 +87,7 @@ class MainServices extends Component {
 											<img src="images/services/20.jpg" alt="" />
 										</div>
 										<div class="land-pack-grid-text">
-											<h4>Hotel Bookings</h4>
+											<h4>Explore City</h4>
 											<a href="service-booking.html" class="land-pack-grid-btn">Book Now</a></div>
 									</div>
 								</li>
@@ -97,7 +97,7 @@ class MainServices extends Component {
 											<img src="images/services/p1.jpg" alt="" />
 										</div>
 										<div class="land-pack-grid-text">
-											<h4>Real Estate</h4>
+											<h4>Second Hand</h4>
 											<a href="service-booking.html" class="land-pack-grid-btn land-pack-grid-btn-blu">Book Now</a></div>
 									</div>
 								</li>
