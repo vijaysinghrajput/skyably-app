@@ -86,14 +86,14 @@ class ListingServicesList extends Component{
                  <div class="row">
                     { this.state.Categorys.map((item, key) => {
             return (
-                <div class="col-xl-4 col-lg-4 col-sm-4 col-6">
+                <div class="col-xl-2 col-lg-2 col-sm-6 col-6">
 						
                 <div class="card" >
-  <img class=" " src={URL + "/images/category_images/" + item.image} style={{width:"auto",margin:"auto",display:'block', height:200}} alt="Card image cap"/>
+  <img class=" " src={URL + "/images/category_images/" + item.image} style={{width:40,margin:"auto",display:'block', height:40}} alt="Card image cap"/>
   <div class=" my-3 text-center">
 
    
-    <a  class="text-center my-3" href="#" class="btn btn-primary"> {item.name} </a>
+    <a  class="text-center my-3" href="#" > {item.name} </a>
   </div>
 </div>
 
